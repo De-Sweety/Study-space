@@ -26,7 +26,7 @@ just a simple idea
     };
     struct data *lb = new struct data[100];
       int index;
-        class Manage {
+      class Manage {
       protected:
       public:
         void read_data() {//读取文件内容
@@ -314,4 +314,4 @@ just a simple idea
     }
     system("pause");
     return 0;
-   }
+    }
