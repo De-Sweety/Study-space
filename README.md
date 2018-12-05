@@ -12,40 +12,39 @@ just a simple idea
 6.	排序功能：实现各部门的排序，比如销售部门，则将公司内的所有销售人员进行排序。
 7.	打印人员信息
 所涉及的数据用文本文件形式存储
----
-  #include<iostream>
-  #include<string>
-  #include<fstream>
-  using namespace std;
+---   
 
-  struct data {
-    string ID;//编号
-    string name;//姓名
-    string link;//联系方式
-    string position;//所属部门
-  };
-  struct data *lb = new struct data[100];
-  int index;
-
-  class Manage {
-  protected:
-  public:
-    void read_data() {//读取文件内容
-      int i = 0;
-      ifstream fin("D:\\Manager_sisterm.dat", ios::in | ios::binary);//二进制方式打开文件
-      if (!fin.is_open()) {
-        cout << "不能打开文件：D:\\Manager_sisterm.dat\n";
-        exit(1);
-      }
-      while (!fin.eof()){
-        fin >> lb[i].ID >> lb[i].name;
-        fin >> lb[i].link >> lb[i].position;
-        i++;
-      } 
-      index = i-1;
-      fin.close();
-    }
-
+    #include<iostream>
+    #include<string>
+    #include<fstream>
+    using namespace std;
+    struct data {
+      string ID;//编号
+      string name;//姓名
+      string link;//联系方式
+      string position;//所属部门
+    };
+    struct data *lb = new struct data[100];
+      int index;
+        class Manage {
+      protected:
+      public:
+        void read_data() {//读取文件内容
+          int i = 0;
+          ifstream fin("D:\\Manager_sisterm.dat", ios::in | ios::binary);//二进制方式打开文件
+          if (!fin.is_open()) {
+            cout << "不能打开文件：D:\\Manager_sisterm.dat\n";
+            exit(1);
+          }
+        while (!fin.eof()){
+          fin >> lb[i].ID >> lb[i].name;
+          fin >> lb[i].link >> lb[i].position;
+          i++;
+        } 
+        index = i-1;
+        fin.close();
+       }
+      
     void save_data() {//保存内容到文件
       int i;
       ofstream fout("D:\\Manager_sisterm.dat", ios::out | ios::binary|ios::trunc);
@@ -281,10 +280,10 @@ just a simple idea
 
     }
 
-  };
+    };
 
 
-  int main() {
+    int main() {
     int k;	
     Manage A;
 
@@ -315,4 +314,4 @@ just a simple idea
     }
     system("pause");
     return 0;
-  }
+   }
